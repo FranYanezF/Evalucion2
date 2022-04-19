@@ -1,0 +1,44 @@
+{{> navbar}}
+<div class="container mt-3">
+  <h1>
+    {{#if id}}
+      Actualizando la informacion de tu peludo "{{title}}" ({{id}})
+    {{else}}
+      Crear un nuevo minino
+    {{/if}}
+  </h1>
+  <!--
+    Este formulario se usará tanto para edición como creación, este if nos dice que si viene un id, entonces será un update, si no, será un create.
+    Para el action, si viene un id será un post a /articles/:id/update, si no, será un post a /articles/create.
+  -->
+  <form action="/cats/{{#if id}}{{id}}/update{{else}}create{{/if}}" method="POST">
+    <div class="mb-3">
+      <label for="nombre" class="form-label">Nombre</label>
+      <input type="text" class="form-control" name="nombre" aria-describedby="nombreHelp" required="true" value="{{nombre}}">
+      <div id="nombreHelp" class="form-text">Ingrese nombre de su majestad</div>
+    </div>
+    <div class="mb-3">
+      <label for="color" class="form-label">Color</label>
+      <input type="text" class="form-control" name="color" aria-describedby="colorHelp" required="true" value="{{color}}">
+      <div id="colorHelp" class="form-text"> Ingresa el color de tu bolita de pelos</div>
+    </div>
+    <div class="mb-3">
+      <label for="raza" class="form-label">Raza</label>
+      <input type="text" class="form-control" name="raza" aria-describedby="razaHelp" required="true" value="{{raza}}">
+      <div id="razaHelp" class="form-text"> Ingresa la raza de tu bolita de pelos</div>
+    </div>
+     <div class="mb-3">
+      <label for="edad" class="form-label">Edad</label>
+      <input type="number" class="form-control" name="edad" aria-describedby="edadHelp" required="true" value="{{edad}}">
+      <div id="edadHelp" class="form-int"> Ingresa la edad  de tu bolita de pelos</div>
+    </div>
+     <div class="mb-3">
+      <label for="pais" class="form-label">Pais</label>
+      <input type="text" class="form-control" name="pais" aria-describedby="paisHelp" required="true" value="{{pais}}">
+      <div id="paisHelp" class="form-text"> ¿Desde donde nos escribes?</div>
+    </div>
+    <div class="mb-3">
+      <button type="submit" class="btn btn-primary">Enviar</button>
+    </div>
+  </form>
+</div>

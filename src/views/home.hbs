@@ -1,0 +1,23 @@
+{{> navbar}}
+<div class="container mt-3">
+  <header class="my-5">
+    <h1>El blog de los gatos</h1>
+    <p>
+El gato doméstico​​, llamado más comúnmente gato, y de forma coloquial minino, ​ michino, ​ michi, ​ micho, ​ mizo, ​ miz, ​ morroño​ o morrongo, ​ y algunos nombres más, es un mamífero carnívoro de la familia Felidae. Es una subespecie domesticada por la convivencia con el ser humano    </p>
+    <a href="/about">Conocenos</a>
+  </header>
+  <hr>
+  <h3 class="mt-5 mb-3">Últimos mininos</h3>
+  {{#each Cats}}
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Nombre : {{this.nombre}}</h5>
+        <p class="card-text">Color : {{this.color}}</p>
+        <p class="card-text">Raza : {{this.raza}}</p>
+        <p class="card-text">Edad : {{this.edad}}</p>
+        <p class="card-text">Pais : {{this.pais}}</p>
+        <a href="/cats/{{this.id}}" class="btn btn-primary btn-sm">Leer más</a>
+      </div>
+    </div>
+  {{/each}}
+</div>
